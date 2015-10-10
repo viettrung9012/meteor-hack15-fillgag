@@ -131,6 +131,6 @@
       "Router": false,           // iron-router
 
       // current project
-      
+      "Posts": true
     }
 }
