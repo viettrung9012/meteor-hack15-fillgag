@@ -1,9 +1,13 @@
 <template name="postList">
   <h1>This is a stub</h1>
-  <canvas id="simple_sketch" width="800" height="300"></canvas>
+  <div class="tools">
+    <a href="#tools_sketch" data-tool="marker">Marker</a>
+    <a href="#tools_sketch" data-tool="eraser">Eraser</a>
+  </div>
+  <canvas id="tools_sketch" width="800" height="300" style="background: url(/Trung.jpg) center center;"></canvas>
   <script type="text/javascript">
     $(function() {
-      $('#simple_sketch').sketch();
+      $('#tools_sketch').sketch();
     });
   </script>
 </template>
