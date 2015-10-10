@@ -1,1 +1,9 @@
-/* CSS declarations go here */
+body {
+  background: #e7e7e7;
+  color: #666666;
+}
+
+.thumbnail img {
+  min-height:100px;
+  height:100px;
+}
