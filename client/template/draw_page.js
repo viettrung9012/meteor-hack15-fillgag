@@ -68,6 +68,7 @@ Template.drawPage.events({
     context.globalCompositeOperation = compositeOperation;
 
     Meteor.call('doodleInsert', {
+      original: doodleItem._id,
       width: canvas.width(),
       height: canvas.height(),
       doodle: imageData
@@ -81,8 +82,8 @@ Template.drawPage.events({
         throwError('This doodle has already been created');
       }
 
-      Router.go('drawPage', {
-        _id: result._id
+      Router.go('galleryPage', {
+        _id: doodleItem._id
       });
     });
   }

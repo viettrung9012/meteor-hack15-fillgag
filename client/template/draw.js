@@ -1,12 +1,12 @@
 Template.draw.helpers({
-  images: [
-    1, 2, 3, 4, 5
-  ]
+  images: function() {
+    return Doodles.find();
+  }
 });
 
 Template.draw.events({
   'click .thumbnail': function(event) {
     event.preventDefault();
-    Router.go('drawPage', {_id: 1});
+    Router.go('drawPage', {_id: this._id});
   }
 });

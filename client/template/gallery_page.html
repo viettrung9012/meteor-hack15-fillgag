@@ -1,0 +1,18 @@
+<template name="galleryPage">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <a href="#" class="thumbnail big-thumbnail">
+      <img src="{{original}}" />
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    {{#each images}}
+    <div class="col-md-3">
+      <a href="#" class="thumbnail">
+      <img src="{{doodle}}" />
+      </a>
+    </div>
+    {{/each}}
+  </div>
+</template>

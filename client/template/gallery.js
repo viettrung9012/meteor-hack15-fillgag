@@ -1,5 +1,12 @@
 Template.gallery.helpers({
-  images: [
-    1, 2, 3
-  ]
+  images: function() {
+    return Doodles.find();
+  }
+});
+
+Template.gallery.events({
+  'click .thumbnail': function(event) {
+    event.preventDefault();
+    Router.go('galleryPage', {_id: this._id});
+  }
 });
