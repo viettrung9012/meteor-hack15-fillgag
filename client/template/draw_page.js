@@ -1,5 +1,5 @@
 Template.drawPage.rendered = function() {
-  var doodleItem = Doodles.findOne();
+  var self = this;
   $(document).ready( function(){
     //Get the canvas &
   var c = $('#tools_sketch');
@@ -10,7 +10,12 @@ Template.drawPage.rendered = function() {
 
     function respondCanvas(){
         c.attr('width', $(container).width() ); //max width
-        c.attr('height', $(container).width() * doodleItem.height / doodleItem.width );
+        c.attr('height', $(container).height() ); // max height
+
+        if (!!self._id) {
+          var doodleItem = Doodles.findOne();
+          c.attr('height', $(container).width() * doodleItem.height / doodleItem.width );
+        }
 
         //Call a function to redraw other content (texts, images etc)
     }
@@ -27,6 +32,9 @@ Template.drawPage.rendered = function() {
 };
 
 Template.drawPage.helpers({
+  'new': function(){
+    return !this._id;
+  },
   'doodle': function(){
     return Doodles.findOne().doodle;
   }
@@ -56,10 +64,16 @@ Template.drawPage.events({
     //set to draw behind current content
     context.globalCompositeOperation = "destination-over";
 
-    var imageObj = new Image();
-    var doodleItem = Doodles.findOne();
-    imageObj.src = doodleItem.doodle;
-    context.drawImage(imageObj, 0, 0, doodleItem.width, doodleItem.height, 0, 0, w, h);
+    var doodleItem;
+    if (this._id) {
+      var imageObj = new Image();
+      doodleItem = Doodles.findOne();
+      imageObj.src = doodleItem.doodle;
+      context.drawImage(imageObj, 0, 0, doodleItem.width, doodleItem.height, 0, 0, w, h);
+    } else {
+      context.fillStyle = 'white';
+      context.fillRect(0, 0, w, h);
+    }
 
     var imageData = canvas.get(0).toDataURL("image/png");
 
@@ -73,7 +87,7 @@ Template.drawPage.events({
     context.globalCompositeOperation = compositeOperation;
 
     Meteor.call('doodleInsert', {
-      original: doodleItem._id,
+      original: (this._id) ? doodleItem._id : '0',
       width: canvas.width(),
       height: canvas.height(),
       doodle: imageData
@@ -87,9 +101,13 @@ Template.drawPage.events({
         throwError('This doodle has already been created');
       }
 
-      Router.go('galleryPage', {
-        _id: doodleItem._id
-      });
+      if (this._id) {
+        Router.go('galleryPage', {
+          _id: doodleItem._id
+        });
+      } else {
+        Router.go('gallery');
+      }
     });
   }
 });

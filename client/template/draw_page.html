@@ -8,5 +8,5 @@
 			<p style="float: right;">Please log in to save your gag</p>
 		{{/if}}
   </div>
-  <canvas id="tools_sketch" width="800" height="500" style="background: url({{doodle}}) no-repeat; background-size: 100%;"></canvas>
+  <canvas id="tools_sketch" width="800" height="500"  style="{{#if new}}background-color: #fff{{else}}background: url({{doodle}}) no-repeat{{/if}}; background-size: 100%;"></canvas>
 </template>

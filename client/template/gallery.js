@@ -7,6 +7,10 @@ Template.gallery.helpers({
 Template.gallery.events({
   'click .thumbnail': function(event) {
     event.preventDefault();
-    Router.go('galleryPage', {_id: this._id});
+    if (Doodles.findOne(this._id).descendants.length === 0) {
+      Router.go('drawPage', {_id: this._id});
+    } else {
+      Router.go('galleryPage', {_id: this._id});
+    }
   }
 });
