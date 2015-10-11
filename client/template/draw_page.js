@@ -36,6 +36,11 @@ Template.drawPage.events({
   'click #submit': function(event) {
     event.preventDefault();
 
+    var userId = Meteor.userId();
+    if (!userId) {
+      return throwError('Please Log-in to Save your Gag');
+    }
+
     var canvas = $('#tools_sketch');
     var context = canvas.get(0).getContext('2d');
 

@@ -31,6 +31,10 @@ Template.new.rendered = function() {
 Template.new.events({
   'click #submit': function(event) {
     event.preventDefault();
+    var userId = Meteor.userId();
+    if (!userId) {
+      return throwError('Please Log-in to Save your Gag');
+    }
     Meteor.call('doodleInsert', {
       width: $('#tools_sketch').width(),
       height: $('#tools_sketch').height(),
