@@ -45,9 +45,7 @@ Template.new.events({
         throwError('This doodle has already been created');
       }
 
-      Router.go('drawPage', {
-        _id: result._id
-      });
+      Router.go('gallery');
     });
   }
 });
