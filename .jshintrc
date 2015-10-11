@@ -131,6 +131,8 @@
       "Router": false,           // iron-router
 
       // current project
-      "Posts": true
+      "Doodles": true,
+      "Errors": true,
+      "throwError": true
     }
 }
