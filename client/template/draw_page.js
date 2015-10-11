@@ -24,8 +24,12 @@ Template.drawPage.rendered = function() {
     respondCanvas();
   });
   $(function() {
+    $('.tools').append("<p></p>");
+    $.each(['#f00', '#ff0', '#0f0', '#0ff', '#00f', '#f0f', '#000', '#fff'], function() {
+      $('.tools').append("<a href='#tools_sketch' data-color='" + this + "' style = 'float: left; border-radius: 50%; height: 32px; width: 32px;background: " + this + ";'></a>");
+    });
     $.each([5, 10, 15], function() {
-      $('.tools').append("<a href='#tools_sketch' data-size='" + this + "' style='background: #ccc'>" + this + "</a> ");
+      $('.tools').append("<a href='#tools_sketch' data-size='" + this + "' style='float:left;text-align:center;border-radius:50%;height:32px;width:32px;background: #ccc'>" + this + "</a> ");
     });
     $('#tools_sketch').sketch();
   });
