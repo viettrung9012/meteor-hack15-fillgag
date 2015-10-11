@@ -1,7 +1,7 @@
 <template name="drawPage">
 	<div class="tools">
-    <a href="#tools_sketch" data-tool="marker" class="marker"></a>
-    <a href="#tools_sketch" data-tool="eraser" class="eraser"></a>
+    <a href="#tools_sketch" data-tool="marker" class="marker"><img src="icons/marker.png"/></a>
+    <a href="#tools_sketch" data-tool="eraser" class="eraser"><img src="icons/eraser.png"/></a>
 		<select name="colorpicker">
 			<option value="#000000">Batman Black</option>
 		  <option value="#7bd148">Green</option>
@@ -19,7 +19,7 @@
 		</select>
 	  <input id="thickness" data-slider-id='thickness' type="text" data-slider-min="1" data-slider-max="20" data-slider-step="1" data-slider-value="5"/>
 		{{#if currentUser}}
-			<a id="submit" style="float: right;">Submit</a>
+			<a id="submit" class="btn btn-primary" style="float: right;">Submit</a>
 		{{else}}
 			<p style="float: right;">Please log in to save your gag</p>
 		{{/if}}

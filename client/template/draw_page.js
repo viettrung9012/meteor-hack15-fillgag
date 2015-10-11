@@ -39,6 +39,14 @@ Template.drawPage.rendered = function() {
     });
     $('#tools_sketch').sketch();
   });
+  $('.marker').click(function(){
+    $('.marker').css('background', '#ffd700');
+    $('.eraser').css('background', '#e7e7e7');
+  });
+  $('.eraser').click(function(){
+    $('.marker').css('background', '#e7e7e7');
+    $('.eraser').css('background', '#ffd700');
+  });
 };
 
 Template.drawPage.helpers({

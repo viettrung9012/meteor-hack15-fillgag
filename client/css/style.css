@@ -24,11 +24,7 @@ body {
 }
 
 .marker {
-  background-image: url('icons/marker.png');
-}
-
-.eraser {
-  background-image: url('icons/eraser.png');
+  background: #ffd700;
 }
 
 span.simplecolorpicker.icon {
