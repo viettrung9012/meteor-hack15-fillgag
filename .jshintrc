@@ -133,6 +133,7 @@
       // current project
       "Doodles": true,
       "Errors": true,
-      "throwError": true
+      "throwError": true,
+      "sortBy": true
     }
 }

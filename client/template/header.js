@@ -1,3 +1,12 @@
+Session.set('sortBy', 'latest');
+
+Template.header.rendered = function() {
+	$('.selectpicker').selectpicker();
+	$('.selectpicker').on('change', function() {
+		Session.set('sortBy', this.value);
+	});
+};
+
 Template.header.helpers({
 	activeRouteClass: function(/* route name */) {
 		var args = Array.prototype.slice.call(arguments, 0);
