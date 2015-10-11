@@ -3,6 +3,22 @@ body {
   color: #666666;
 }
 
+.fillgag {
+  padding-left: 0px;
+  padding-right: 10px;
+}
+
+.logo {
+  padding-top: 0;
+  padding-left: 10px;
+  padding-right: 3px;
+}
+
+.logo img {
+  height: 50px;
+  vertical-align: middle;
+}
+
 .thumbnail img {
   min-height:100px;
   height:100px;
