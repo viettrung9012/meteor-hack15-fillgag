@@ -2,7 +2,7 @@
 Meteor Distributed Hackathon 2015
 Project FillGag
 
-# [Devpost Page](http://devpost.com/software/fillgag)
+## [Devpost Page](http://devpost.com/software/fillgag)
 
 ## To run the project
 
